@@ -8,13 +8,13 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-        backgroundColor: Colors.black.withOpacity(0.4),
+        backgroundColor: Colors.black.withOpacity(0.7),
         child: SafeArea(
           child: Column(
             children: [
               Container(
                 padding: const EdgeInsets.fromLTRB(20, 10, 0, 0),
-                color: Colors.black.withOpacity(0.5),
+                color: Colors.black.withOpacity(0.6),
                 width: 300,
                 height: 180,
                 child: Column(
@@ -25,7 +25,7 @@ class MyDrawer extends StatelessWidget {
                       scale: .55,
                     ),
                     const Text(
-                      "CATERING SERVICES",
+                      "VILLA CATERING",
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
                   ],

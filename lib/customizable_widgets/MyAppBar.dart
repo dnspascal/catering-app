@@ -9,16 +9,17 @@ class MyAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title:Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Image.asset('img/icn2.png',),
-          const Text('Catering Services'),
+          const SizedBox(width: 5,),
+          const Text('VILLA Catering'),
         ],
       ),
       centerTitle: true,
       titleSpacing: 30,
       toolbarHeight:85,
-      backgroundColor: Colors.black.withOpacity(0.8),
+      backgroundColor: Colors.black.withOpacity(0.9),
       actions: [Padding(
         padding: const EdgeInsets.all(8.0),
         child: IconButton(onPressed: (){}, icon:const Icon(Icons.person_2_outlined,color: Colors.white,size: 40,)),

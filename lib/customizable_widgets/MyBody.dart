@@ -23,9 +23,9 @@ class MyBody extends StatelessWidget {
                 ),
                 Container(
                   width: 340,
-                  height: 230,
+                  height: 180,
                   padding: const EdgeInsets.all(14),
-                  color: Colors.black.withOpacity(0.5),
+                  color: Colors.black.withOpacity(0.8),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -58,6 +58,9 @@ class MyBody extends StatelessWidget {
               ],
             ),
           ),
+          const SizedBox(
+            height: 20,
+          ),
           SizedBox(
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -67,8 +70,8 @@ class MyBody extends StatelessWidget {
                     child: Text(
                       'OUR CATERING SERVICES',
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25,
+                        fontWeight: FontWeight.w900,
+                        fontSize: 27,
                       ),
                     ),
                   ),
@@ -153,10 +156,11 @@ class MyBody extends StatelessWidget {
                 ]),
           ),
           Container(
-            color: Colors.black.withOpacity(0.8),
-            padding: EdgeInsets.all(12),
+            color: Colors.black.withOpacity(0.9),
+            padding: const EdgeInsets.all(12),
             height: 250,
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -209,34 +213,51 @@ class MyBody extends StatelessWidget {
                     )
                   ],
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children:[
-
-                  Image.asset('img/icn2.png',scale: 0.8,height: 40,width: 100,),
-                  const  SizedBox(
-                      height: 100,
-                      width: 250,
-                      child: Text(
-                          'Welcome To VILLA Catering, Where Our Commitment To Excellence And Culinary Innovation Has Made Us One Of The Premier Caterers Serving Dar Es Salaam Area.  ',
-                          style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
-
-                        ),
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Image.asset(
+                    'img/icn2.png',
+                    scale: 0.8,
+                    height: 20,
+                    width: 80,
+                  ),
+                  const SizedBox(
+                    height: 100,
+                    width: 230,
+                    child: Text(
+                      'Welcome To VILLA Catering, Where Our Commitment To Excellence And Culinary Innovation Has Made Us One Of The Premier Caterers Serving Dar Es Salaam Area.  ',
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
                     ),
-                    const Text("Subscribe"),
-                    const Text("Don't miss to subscribe to our new feeds, kindly fill the form below"),
-
-                    const Text("Follow Us "),
-                    Row(children: const[
-                      Icon(Icons.facebook),
-                      Icon(Icons.telegram),
-                      Icon(Icons.tiktok),
-                      
-                    ],)
-
-                  ]
-                )
+                  ),
+                  const Text(
+                    "Subscribe",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                  ),
+                  const SizedBox(
+                      height: 40.0,
+                      width: 230.0,
+                      child: Text(
+                          "Don't miss to subscribe to our new feeds, kindly fill the form below")),
+                  const Text(
+                    "Follow Us",
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
+                  Row(
+                    children: const [
+                      Icon(
+                        Icons.facebook,
+                        color: Colors.blue,
+                      ),
+                      Icon(
+                        Icons.telegram,
+                        color: Color.fromARGB(255, 2, 44, 65),
+                      ),
+                      Icon(Icons.tiktok_outlined),
+                    ],
+                  )
+                ])
               ],
             ),
           )
