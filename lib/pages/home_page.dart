@@ -9,14 +9,20 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: const MyDrawer(),
-        appBar: const PreferredSize(
-            preferredSize: Size.fromHeight(85), child: MyAppBar()),
-        floatingActionButton: SizedBox(width: 120,height: 48, child: FloatingActionButton(onPressed: (){},shape: RoundedRectangleBorder(side: const BorderSide(color: Colors.blue),borderRadius: BorderRadius.circular(30)),child: Text('Chat with us'),)),
-        body:  const MyBody(),
-        
-        );
-       
+      drawer: const MyDrawer(),
+      appBar: const PreferredSize(
+          preferredSize: Size.fromHeight(85), child: MyAppBar()),
+      floatingActionButton: SizedBox(
+          width: 120,
+          height: 48,
+          child: FloatingActionButton(
+            onPressed: () {},
+            shape: RoundedRectangleBorder(
+                side: const BorderSide(color: Colors.blue),
+                borderRadius: BorderRadius.circular(30)),
+            child: const Text('Chat with us'),
+          )),
+      body: const MyBody(),
+    );
   }
 }
-

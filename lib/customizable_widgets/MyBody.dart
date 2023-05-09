@@ -23,7 +23,7 @@ class MyBody extends StatelessWidget {
                 ),
                 Container(
                   width: 340,
-                  height: 180,
+                  height: 230,
                   padding: const EdgeInsets.all(14),
                   color: Colors.black.withOpacity(0.8),
                   child: Column(

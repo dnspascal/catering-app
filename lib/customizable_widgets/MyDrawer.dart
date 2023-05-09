@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:catering_app/pages/registration.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({
@@ -31,25 +32,28 @@ class MyDrawer extends StatelessWidget {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  
-                  children: [
-                    Icon(
-                      Icons.home,
-                      size: 50,
-                      color: Colors.white.withOpacity(0.6),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(14, 0, 0, 0),
-                      child: Text(
-                        "Home",
-                        style: TextStyle(
-                            fontSize: 22, color: Colors.white.withOpacity(0.6)),
+              InkWell(
+                onTap:(){Navigator.push(context, MaterialPageRoute(builder: (_)=> const Registration()));},
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Row(
+                    
+                    children: [
+                      Icon(
+                        Icons.home,
+                        size: 50,
+                        color: Colors.white.withOpacity(0.6),
                       ),
-                    )
-                  ],
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(14, 0, 0, 0),
+                        child: Text(
+                          "Home",
+                          style: TextStyle(
+                              fontSize: 22, color: Colors.white.withOpacity(0.6)),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
               Padding(
@@ -72,27 +76,12 @@ class MyDrawer extends StatelessWidget {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.calendar_month,
-                      size: 50,
-                      color: Colors.white.withOpacity(0.6),
-                    ),
-                    Container(
-                      margin:const EdgeInsets.fromLTRB(14, 0, 0, 0),
-                      child: Text(
-                        "Schedule Of Events",
-                        style: TextStyle(
-                            fontSize: 22, color: Colors.white.withOpacity(0.6)),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              Padding(
+             
+           InkWell( 
+            onTap:(){
+              Navigator.push(context,MaterialPageRoute(builder: (_)=>const Registration()));
+            },
+            child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Row(
                   children: [
@@ -111,7 +100,7 @@ class MyDrawer extends StatelessWidget {
                     )
                   ],
                 ),
-              ),
+              ),),
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Row(
