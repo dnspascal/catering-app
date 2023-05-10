@@ -5,6 +5,7 @@ import 'package:catering_app/customizable_widgets/MyAppBar.dart';
 import 'package:catering_app/customizable_widgets/MyDrawer.dart';
 
 import '../models/data_source.dart';
+import 'menu_page.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -198,7 +199,7 @@ class _LoginState extends State<Login> {
               ElevatedButton(
                 onPressed: () {
                   Navigator.pop(context,
-                      MaterialPageRoute(builder: (_) => const Registration()));
+                      MaterialPageRoute(builder: (_) => const MenuPage()));
                 },
                 style: ButtonStyle(
                     backgroundColor:
