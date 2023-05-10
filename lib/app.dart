@@ -11,7 +11,7 @@ class Catering extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Catering',
-      home: Login(),
+      home: HomePage(),
     );
   }
 }
