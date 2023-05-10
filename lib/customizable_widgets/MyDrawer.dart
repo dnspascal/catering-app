@@ -1,3 +1,6 @@
+import 'package:catering_app/customizable_widgets/MyMenu.dart';
+import 'package:catering_app/pages/home_page.dart';
+import 'package:catering_app/pages/menu_page.dart';
 import 'package:flutter/material.dart';
 import 'package:catering_app/pages/registration.dart';
 
@@ -33,7 +36,7 @@ class MyDrawer extends StatelessWidget {
                 ),
               ),
               InkWell(
-                onTap:(){Navigator.push(context, MaterialPageRoute(builder: (_)=> const Registration()));},
+                onTap:(){Navigator.push(context, MaterialPageRoute(builder: (_)=> const HomePage()));},
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Row(
@@ -56,24 +59,27 @@ class MyDrawer extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.food_bank_rounded,
-                      size: 50,
-                      color: Colors.white.withOpacity(0.6),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(14, 0, 0, 0),
-                      child: Text(
-                        "Menu",
-                        style: TextStyle(
-                            fontSize: 22, color: Colors.white.withOpacity(0.6)),
+              InkWell(
+                 onTap:(){Navigator.push(context, MaterialPageRoute(builder: (_)=> const MenuPage()));},
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.food_bank_rounded,
+                        size: 50,
+                        color: Colors.white.withOpacity(0.6),
                       ),
-                    )
-                  ],
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(14, 0, 0, 0),
+                        child: Text(
+                          "Menu",
+                          style: TextStyle(
+                              fontSize: 22, color: Colors.white.withOpacity(0.6)),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
              
