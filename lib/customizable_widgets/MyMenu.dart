@@ -1,3 +1,5 @@
+import 'package:catering_app/pages/menu_page.dart';
+import 'package:catering_app/pages/order_page.dart';
 import 'package:flutter/material.dart';
 
 class MyMenu extends StatelessWidget {
@@ -136,44 +138,50 @@ class MenuItem extends StatelessWidget {
   Widget build(BuildContext context) {
     dynamic sum = addValues();
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.symmetric(vertical: 12,horizontal: 0),
       child: Card(
-        child: Column(
-          children: [
-            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Image.asset(
-                'img/' + photo,
-                width: 180,
-                height: 180,
-                fit: BoxFit.cover,
-              ),
-              for (final map in foodMenu) buildFoodMenu(map),
-            ]),
-            Row(
-              children: [
-                Text(
-                  'Total',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        child: SizedBox(
+          height: 420,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                
+               children: [
+                Image.asset(
+                  'img/' + photo,
+                  width: 180,
+                  height: 200,
+                  fit: BoxFit.cover,
                 ),
-                SizedBox(width: 80,),
-                Text(sum.toString(), style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900),)
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Center(
-                  child: ElevatedButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Order Now',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.orange[900]),
-                      ))),
-            ),
-          ],
+                for (final map in foodMenu) buildFoodMenu(map),
+              ]),
+              Row(
+                children: [
+                  Text(
+                    'Total',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(width: 80,),
+                  Text(sum.toString(), style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900),)
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Center(
+                    child: ElevatedButton(
+                        onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=> const OrderPage()));},
+                        child: Text(
+                          'Order Now',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.orange[900]),
+                        ))),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -181,21 +189,23 @@ class MenuItem extends StatelessWidget {
 
   Widget buildFoodMenu(Map<String, dynamic> menu) {
     
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Text(
-          menu['food'],
-          style: TextStyle(fontSize: 21),
-        ),
-        SizedBox(
-          width: 70,
-        ),
-        Text(
-          menu['price'].toString(),
-          style: TextStyle(fontSize: 21),
-        ),
-      ],
+    return Container(
+      width: 180,
+      padding: EdgeInsets.symmetric(horizontal:8),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            menu['food'],
+            style: TextStyle(fontSize: 21),
+          ),
+
+          Text(
+            menu['price'].toString(),
+            style: TextStyle(fontSize: 21),
+          ),
+        ],
+      ),
     );
   }
 
