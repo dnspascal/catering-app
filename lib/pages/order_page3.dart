@@ -1,5 +1,5 @@
 import 'package:catering_app/pages/home_page.dart';
-import 'package:catering_app/pages/order_page2.dart';
+import 'package:catering_app/pages/order_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:catering_app/customizable_widgets/MyAppBar.dart';
@@ -7,8 +7,8 @@ import 'package:catering_app/customizable_widgets/MyDrawer.dart';
 
 import '../customizable_widgets/MyMenu.dart';
 
-class OrderPage extends StatelessWidget {
-  const OrderPage({super.key});
+class OrderPage3 extends StatelessWidget {
+  const OrderPage3({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +20,14 @@ class OrderPage extends StatelessWidget {
   }
 }
 
-class MyOrder extends StatelessWidget {
+class MyOrder extends StatefulWidget {
   const MyOrder({super.key});
 
+  @override
+  State<MyOrder> createState() => _MyOrderState();
+}
+
+class _MyOrderState extends State<MyOrder> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -40,7 +45,7 @@ class MyOrder extends StatelessWidget {
             const Text("Delicious meals are just a few clicks away"),
             Stack(children: [
                LinearProgressIndicator(
-                value: 25 / 100,
+                value: 75 / 100,
                 minHeight: 20,
                 backgroundColor: Colors.grey,
                 valueColor: AlwaysStoppedAnimation<Color>(Colors.blue[900]!),
@@ -52,42 +57,29 @@ class MyOrder extends StatelessWidget {
                    
                     children: const [
                       SizedBox(
-                        width: 32.0,
+                        width: 95.0,
+                        
                       ),
-                      Text(
-                        '25%',
-                        style: TextStyle(color: Colors.white,),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0,4,0,0),
+                        child: Text(
+                          '75%',
+                          style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ],
                   ))
             ]),
             const Text(
-              "Details",
+              "Venue Details",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
             ),
             Form(
                 child: Column(
               children: [
-                const Text('No. of Pax'),
-                SizedBox(
-                  height: 30,
-                  child: TextFormField(
-                    cursorColor: Colors.grey,
-                    keyboardType: TextInputType.number,
-                    decoration: const InputDecoration(
-                      contentPadding: EdgeInsets.symmetric(horizontal: 8),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
-                      ),
-                      hintText: "No. of Pax",
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide(
-                        color: Colors.grey,
-                      )),
-                    ),
-                  ),
-                ),
-                const Text('Date of Event'),
+               
+              
+                const Text('Ocassion'),
                 Container(
                   height: 50.0,
                   decoration: BoxDecoration(border: Border.all()),
@@ -98,58 +90,80 @@ class MyOrder extends StatelessWidget {
                           Expanded(
                             child: TextFormField(
                               cursorColor: Colors.grey,
-                              keyboardType: TextInputType.visiblePassword,
+                              keyboardType: TextInputType.multiline,
                               decoration: const InputDecoration(
                                 contentPadding: EdgeInsets.symmetric(
                                     horizontal: 8, vertical: 0),
                                 focusedBorder: InputBorder.none,
-                                hintText: "mm/dd/yyyy",
+                                hintText: "Add More Description",
                                 border: InputBorder.none,
                               ),
                             ),
                           ),
                           IconButton(
                               onPressed: () {},
-                              icon: const Icon(Icons.calendar_month))
+                              icon: const Icon(Icons.arrow_drop_down))
                         ],
                       ),
                     ],
                   ),
+                ),
+                Column(
+                  children: [
+                    Text('Type'),
+                    ListTile(
+                      title: Text('Buffet'),
+                      leading: Radio(value: "buffet",groupValue: "type",onChanged: (value) {
+                        setState(() {
+                          
+                        });
+                      },),
+                    ),
+                     ListTile(
+                      title: Text('Plated'),
+                      leading: Radio(value: "buffet",groupValue: "type",onChanged: (value) {
+                        setState(() {
+                          
+                        });
+                      },),
+                    )
+                  ],
                 )
               ],
             )),
-              const Text('Time of Event'),
-                SizedBox(
-                  height: 30,
-                  child: TextFormField(
-                    cursorColor: Colors.grey,
-                    keyboardType: TextInputType.number,
-                    decoration: const InputDecoration(
-                      contentPadding: EdgeInsets.symmetric(horizontal: 8),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
-                      ),
-                      hintText: "--:-- --",
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide(
-                        color: Colors.grey,
-                      )),
-                    ),
-                  ),
-                ),
+         
     
-              ElevatedButton(
-                        onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=> const OrderPage2()));},
-                        style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.teal[700]),
-                            fixedSize: MaterialStateProperty.all(
-                                const Size.fromWidth(90))),
-                        child: const Text(
-                          "Next",
-                          style: TextStyle(fontSize: 20.80),
-                        ),
-                      ),
+              Row(
+                children: [
+                   ElevatedButton(
+                           onPressed: (){Navigator.pop(context);},
+                            style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.grey[700]),
+                                fixedSize: MaterialStateProperty.all(
+                                    const Size.fromWidth(90))),
+                            child: FittedBox(
+                              child: const Text(
+                                "Previous",
+                                style: TextStyle(fontSize: 20.00),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 20,),
+                  ElevatedButton(
+                            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=> const OrderPage3()));},
+                            style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.teal[700]),
+                                fixedSize: MaterialStateProperty.all(
+                                    const Size.fromWidth(90))),
+                            child: const Text(
+                              "Next",
+                              style: TextStyle(fontSize: 20.80),
+                            ),
+                          ),
+                ],
+              ),
                ElevatedButton(
                         onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=> const HomePage()));},
                         style: ButtonStyle(

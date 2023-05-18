@@ -1,5 +1,6 @@
 import 'package:catering_app/pages/home_page.dart';
-import 'package:catering_app/pages/order_page2.dart';
+import 'package:catering_app/pages/order_page.dart';
+import 'package:catering_app/pages/order_page3.dart';
 import 'package:flutter/material.dart';
 
 import 'package:catering_app/customizable_widgets/MyAppBar.dart';
@@ -7,8 +8,8 @@ import 'package:catering_app/customizable_widgets/MyDrawer.dart';
 
 import '../customizable_widgets/MyMenu.dart';
 
-class OrderPage extends StatelessWidget {
-  const OrderPage({super.key});
+class OrderPage2 extends StatelessWidget {
+  const OrderPage2({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,7 @@ class MyOrder extends StatelessWidget {
             const Text("Delicious meals are just a few clicks away"),
             Stack(children: [
                LinearProgressIndicator(
-                value: 25 / 100,
+                value: 50 / 100,
                 minHeight: 20,
                 backgroundColor: Colors.grey,
                 valueColor: AlwaysStoppedAnimation<Color>(Colors.blue[900]!),
@@ -52,34 +53,35 @@ class MyOrder extends StatelessWidget {
                    
                     children: const [
                       SizedBox(
-                        width: 32.0,
+                        width: 65.0,
+                        
                       ),
                       Text(
-                        '25%',
-                        style: TextStyle(color: Colors.white,),
+                        '50%',
+                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
                       ),
                     ],
                   ))
             ]),
             const Text(
-              "Details",
+              "Venue Details",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
             ),
             Form(
                 child: Column(
               children: [
-                const Text('No. of Pax'),
+                const Text('Venue'),
                 SizedBox(
                   height: 30,
                   child: TextFormField(
                     cursorColor: Colors.grey,
-                    keyboardType: TextInputType.number,
+                    keyboardType: TextInputType.streetAddress,
                     decoration: const InputDecoration(
                       contentPadding: EdgeInsets.symmetric(horizontal: 8),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey),
                       ),
-                      hintText: "No. of Pax",
+                      hintText: "Complete Address of venue",
                       border: OutlineInputBorder(
                           borderSide: BorderSide(
                         color: Colors.grey,
@@ -87,7 +89,7 @@ class MyOrder extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Text('Date of Event'),
+                const Text('Ocassion'),
                 Container(
                   height: 50.0,
                   decoration: BoxDecoration(border: Border.all()),
@@ -103,14 +105,14 @@ class MyOrder extends StatelessWidget {
                                 contentPadding: EdgeInsets.symmetric(
                                     horizontal: 8, vertical: 0),
                                 focusedBorder: InputBorder.none,
-                                hintText: "mm/dd/yyyy",
+                                hintText: "Select Occassion",
                                 border: InputBorder.none,
                               ),
                             ),
                           ),
                           IconButton(
                               onPressed: () {},
-                              icon: const Icon(Icons.calendar_month))
+                              icon: const Icon(Icons.arrow_drop_down))
                         ],
                       ),
                     ],
@@ -118,38 +120,39 @@ class MyOrder extends StatelessWidget {
                 )
               ],
             )),
-              const Text('Time of Event'),
-                SizedBox(
-                  height: 30,
-                  child: TextFormField(
-                    cursorColor: Colors.grey,
-                    keyboardType: TextInputType.number,
-                    decoration: const InputDecoration(
-                      contentPadding: EdgeInsets.symmetric(horizontal: 8),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
-                      ),
-                      hintText: "--:-- --",
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide(
-                        color: Colors.grey,
-                      )),
-                    ),
-                  ),
-                ),
+         
     
-              ElevatedButton(
-                        onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=> const OrderPage2()));},
-                        style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.teal[700]),
-                            fixedSize: MaterialStateProperty.all(
-                                const Size.fromWidth(90))),
-                        child: const Text(
-                          "Next",
-                          style: TextStyle(fontSize: 20.80),
-                        ),
-                      ),
+              Row(
+                children: [
+                   ElevatedButton(
+                           onPressed: (){Navigator.pop(context);},
+                            style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.grey[700]),
+                                fixedSize: MaterialStateProperty.all(
+                                    const Size.fromWidth(90))),
+                            child: FittedBox(
+                              child: const Text(
+                                "Previous",
+                                style: TextStyle(fontSize: 20.00),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 20,),
+                  ElevatedButton(
+                            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=> const OrderPage3()));},
+                            style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.teal[700]),
+                                fixedSize: MaterialStateProperty.all(
+                                    const Size.fromWidth(90))),
+                            child: const Text(
+                              "Next",
+                              style: TextStyle(fontSize: 20.80),
+                            ),
+                          ),
+                ],
+              ),
                ElevatedButton(
                         onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=> const HomePage()));},
                         style: ButtonStyle(
