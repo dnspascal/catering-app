@@ -1,7 +1,7 @@
-import 'package:catering_app/customizable_widgets/MyMenu.dart';
 import 'package:catering_app/pages/about_us.dart';
 import 'package:catering_app/pages/home_page.dart';
 import 'package:catering_app/pages/menu_page.dart';
+import 'package:catering_app/pages/payment.dart';
 import 'package:flutter/material.dart';
 import 'package:catering_app/pages/registration.dart';
 
@@ -37,11 +37,13 @@ class MyDrawer extends StatelessWidget {
                 ),
               ),
               InkWell(
-                onTap:(){Navigator.push(context, MaterialPageRoute(builder: (_)=> const HomePage()));},
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const HomePage()));
+                },
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Row(
-                    
                     children: [
                       Icon(
                         Icons.home,
@@ -53,7 +55,8 @@ class MyDrawer extends StatelessWidget {
                         child: Text(
                           "Home",
                           style: TextStyle(
-                              fontSize: 22, color: Colors.white.withOpacity(0.6)),
+                              fontSize: 22,
+                              color: Colors.white.withOpacity(0.6)),
                         ),
                       )
                     ],
@@ -62,7 +65,10 @@ class MyDrawer extends StatelessWidget {
               ),
              
               InkWell(
-                 onTap:(){Navigator.push(context, MaterialPageRoute(builder: (_)=> const MenuPage()));},
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const MenuPage()));
+                },
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Row(
@@ -101,7 +107,62 @@ class MyDrawer extends StatelessWidget {
                         child: Text(
                           "About Us",
                           style: TextStyle(
-                              fontSize: 22, color: Colors.white.withOpacity(0.6)),
+                              fontSize: 22,
+                              color: Colors.white.withOpacity(0.6)),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const Registration()));
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.shopping_cart,
+                        size: 50,
+                        color: Colors.white.withOpacity(0.6),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(14, 0, 0, 0),
+                        child: Text(
+                          "Order Now",
+                          style: TextStyle(
+                              fontSize: 22,
+                              color: Colors.white.withOpacity(0.6)),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+               InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const Payment()));
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.shopping_cart,
+                        size: 50,
+                        color: Colors.white.withOpacity(0.6),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(14, 0, 0, 0),
+                        child: Text(
+                          "Payment",
+                          style: TextStyle(
+                              fontSize: 22,
+                              color: Colors.white.withOpacity(0.6)),
                         ),
                       )
                     ],
@@ -109,6 +170,7 @@ class MyDrawer extends StatelessWidget {
                 ),
               ),
              
+
            InkWell( 
             onTap:(){
               Navigator.push(context,MaterialPageRoute(builder: (_)=>const Registration()));
@@ -137,6 +199,7 @@ class MyDrawer extends StatelessWidget {
             onTap:(){
               Navigator.push(context,MaterialPageRoute(builder: (_)=>const AboutUs()));},
             child:  Padding(
+
                 padding: const EdgeInsets.all(10.0),
                 child: Row(
                   children: [
@@ -145,7 +208,6 @@ class MyDrawer extends StatelessWidget {
                       size: 50,
                       color: Colors.white.withOpacity(0.6),
                     ),
-                    
                     Container(
                       margin: const EdgeInsets.fromLTRB(14.0, 0, 0, 0),
                       child: Text(
@@ -160,7 +222,6 @@ class MyDrawer extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Row(
-                  
                   children: [
                     Icon(
                       Icons.logout,
