@@ -76,13 +76,13 @@ class _RegistrationState extends State<Registration> {
                                 ),
                                 border: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                      color: Colors.grey, width: 5.0),
-                                ),
-                                hintText: "first name ",
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
                                       color: Colors.grey, width: 3.0),
                                 ),
+                                hintText: "first name ",
+                                // enabledBorder: OutlineInputBorder(
+                                //   borderSide: BorderSide(
+                                //       color: Colors.grey, width: 3.0),
+                                // ),
                               ),
                             ),
                             const Text(
@@ -98,13 +98,13 @@ class _RegistrationState extends State<Registration> {
                                 ),
                                 border: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                      color: Colors.grey, width: 5.0),
+                                      color: Colors.grey, ),
                                 ),
                                 hintText: "last name ",
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.grey, width: 3.0),
-                                ),
+                                // enabledBorder: OutlineInputBorder(
+                                //   borderSide: BorderSide(
+                                //       color: Colors.grey, width: 3.0),
+                                // ),
                               ),
                             ),
                             const Text(
@@ -129,13 +129,13 @@ class _RegistrationState extends State<Registration> {
                                 ),
                                 border: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                      color: Colors.grey, width: 5.0),
+                                      color: Colors.grey, width: 1.0),
                                 ),
                                 hintText: "Email address",
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.grey, width: 3.0),
-                                ),
+                                // enabledBorder: OutlineInputBorder(
+                                //   borderSide: BorderSide(
+                                //       color: Colors.grey, width: 3.0),
+                                // ),
                               ),
                             ),
                             const Text(
@@ -154,10 +154,10 @@ class _RegistrationState extends State<Registration> {
                                       color: Colors.grey, width: 5.0),
                                 ),
                                 hintText: "Eg: P.O.BOX 05 SINZA DAR ES SALAAM",
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.grey, width: 3.0),
-                                ),
+                                // enabledBorder: OutlineInputBorder(
+                                  // borderSide: BorderSide(
+                                      // color: Colors.grey, width: 3.0),
+                                // ),
                               ),
                             ),
                             const Text(
@@ -176,10 +176,10 @@ class _RegistrationState extends State<Registration> {
                                       color: Colors.grey, width: 5.0),
                                 ),
                                 hintText: "Eg:0652948016",
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.grey, width: 3.0),
-                                ),
+                                // enabledBorder: OutlineInputBorder(
+                                //   borderSide: BorderSide(
+                                //       color: Colors.grey, width: 3.0),
+                                // ),
                               ),
                             ),
                             const Text(
@@ -208,10 +208,10 @@ class _RegistrationState extends State<Registration> {
                                       color: Colors.grey, width: 5.0),
                                 ),
                                 hintText: "password",
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.grey, width: 3.0),
-                                ),
+                              //   enabledBorder: OutlineInputBorder(
+                              //     borderSide: BorderSide(
+                              //         color: Colors.grey, width: 3.0),
+                              //   ),
                               ),
                             ),
                             const Text(
@@ -230,10 +230,10 @@ class _RegistrationState extends State<Registration> {
                                       color: Colors.grey, width: 5.0),
                                 ),
                                 hintText: "Repeat Password",
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.grey, width: 3.0),
-                                ),
+                                // enabledBorder: OutlineInputBorder(
+                                //   borderSide: BorderSide(
+                                //       color: Colors.grey, width: 3.0),
+                                // ),
                               ),
                             ),
                           ]),

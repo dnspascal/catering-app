@@ -90,32 +90,7 @@ class _LoginState extends State<Login> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      "Email address",
-                      style: TextStyle(
-                          fontSize: 18.0, fontWeight: FontWeight.bold),
-                    ),
-                    TextFormField(
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return "please enter your email";
-                        }
-                        return null;
-                      },
-                      onSaved: (value) {
-                        email = value!;
-                      },
-                      cursorColor: Colors.grey,
-                      decoration: const InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey),
-                        ),
-                        hintText: " Enter email",
-                        border: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.grey, width: 5.0)),
-                      ),
-                    ),
+                 
                     const SizedBox(
                       height: 18.0,
                     ),
@@ -127,13 +102,14 @@ class _LoginState extends State<Login> {
                     TextFormField(
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return "please enter your email";
+                          return "please enter your password";
                         }
                         return null;
                       },
                       onSaved: (value) {
                         password = value!;
                       },
+                      obscureText: true,
                       cursorColor: Colors.grey,
                       decoration: const InputDecoration(
                         focusedBorder: OutlineInputBorder(
@@ -156,13 +132,13 @@ class _LoginState extends State<Login> {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
                     final user = await DataSource.getUserByEmail(email);
-                    if (user != null && user.password == password) {
+                    if ( user != null && user.password == password) {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (_) => const HomePage()));
+                              builder: (_) => const MenuPage()));
 
-                    }else{
+                    }else  {
                       showDialog(context: context, builder: (context)=>AlertDialog(
                         title: const Text("login failed"),content: Text("invalid email or password"),actions: [
                           TextButton(onPressed: (){
@@ -199,7 +175,7 @@ class _LoginState extends State<Login> {
               ElevatedButton(
                 onPressed: () {
                   Navigator.pop(context,
-                      MaterialPageRoute(builder: (_) => const MenuPage()));
+                      MaterialPageRoute(builder: (_) => const Registration()));
                 },
                 style: ButtonStyle(
                     backgroundColor:

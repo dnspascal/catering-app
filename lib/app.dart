@@ -1,3 +1,5 @@
+import 'package:catering_app/pages/about_us.dart';
+import 'package:catering_app/pages/location.dart';
 import 'package:flutter/material.dart';
 import 'package:catering_app/pages/home_page.dart';
 import 'package:catering_app/pages/login.dart';
@@ -11,7 +13,7 @@ class Catering extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Catering',
-      home: HomePage(),
+      home:HomePage() ,
     );
   }
 }
