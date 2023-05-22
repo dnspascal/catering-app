@@ -36,133 +36,143 @@ class _MyOrderState extends State<MyOrder> {
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          
           children: [
-            const Text(
-              "Place Your Order",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
-            ),
-            const Text("Delicious meals are just a few clicks away"),
-            Stack(children: [
-               LinearProgressIndicator(
-                value: 75 / 100,
-                minHeight: 20,
-                backgroundColor: Colors.grey,
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.blue[900]!),
+           const Padding(
+              padding:  EdgeInsets.all(8.0),
+              child:  Text(
+                "Place Your Order",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
               ),
-              Align(
-               
-                  child: Row(
-                   
-                   
-                    children: const [
-                      SizedBox(
-                        width: 95.0,
-                        
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(0,4,0,0),
-                        child: Text(
-                          '75%',
-                          style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ],
-                  ))
-            ]),
-            const Text(
-              "Venue Details",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
             ),
-            Form(
-                child: Column(
-              children: [
-               
-              
-                const Text('Ocassion'),
-                Container(
-                  height: 50.0,
-                  decoration: BoxDecoration(border: Border.all()),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Expanded(
-                            child: TextFormField(
-                              cursorColor: Colors.grey,
-                              keyboardType: TextInputType.multiline,
-                              decoration: const InputDecoration(
-                                contentPadding: EdgeInsets.symmetric(
-                                    horizontal: 8, vertical: 0),
-                                focusedBorder: InputBorder.none,
-                                hintText: "Add More Description",
-                                border: InputBorder.none,
-                              ),
-                            ),
-                          ),
-                          IconButton(
-                              onPressed: () {},
-                              icon: const Icon(Icons.arrow_drop_down))
-                        ],
-                      ),
-                    ],
-                  ),
+           const Padding(
+              padding:  EdgeInsets.all(8.0),
+              child:  Text("Delicious meals are just a few clicks away",style:TextStyle(fontWeight: FontWeight.w600),),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Stack(children: [
+                 LinearProgressIndicator(
+                  value: 75 / 100,
+                  minHeight: 20,
+                  backgroundColor: Colors.grey,
+                  valueColor: AlwaysStoppedAnimation<Color>(Colors.blue[900]!),
                 ),
-                Column(
-                  children: [
-                    Text('Type'),
-                    ListTile(
-                      title: Text('Buffet'),
-                      leading: Radio(value: "buffet",groupValue: "type",onChanged: (value) {
-                        setState(() {
-                          
-                        });
-                      },),
-                    ),
-                     ListTile(
-                      title: Text('Plated'),
-                      leading: Radio(value: "buffet",groupValue: "type",onChanged: (value) {
-                        setState(() {
-                          
-                        });
-                      },),
-                    )
-                  ],
+               
+               const Padding(
+                  padding: EdgeInsets.fromLTRB(120,4,0,0),
+                  child: Text(
+                    '75%',
+                    style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                  ),
                 )
-              ],
-            )),
+              ]),
+            ),
+            const Padding(
+               padding:  EdgeInsets.all(12.0),
+               child: Text(
+                "More Information",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
+                         ),
+             ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Form(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                 
+                
+                  const Text('Other description',style:TextStyle(fontWeight: FontWeight.w600)),
+                  TextFormField(
+                    cursorColor: Colors.grey,
+                    keyboardType: TextInputType.multiline,
+                    decoration: const InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 0),
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                      hintText: "Add More Description",
+                      border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                    ),
+                  ),
+                  Padding(
+
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Type',style: TextStyle(fontWeight: FontWeight.w600),),
+                        
+                         
+                           SizedBox(
+                            height: 30.0,
+                            
+                             child: ListTile(
+                                                   title: Text('Buffet'),
+                                                   horizontalTitleGap: 0,
+                                                   contentPadding: EdgeInsets.all(0),
+                                                   leading: Radio(value: "buffet",groupValue: "type",onChanged: (value) {
+                              setState(() {
+                                
+                              });
+                                                   },),
+                                                 ),
+                           ),
+                      
+                         SizedBox(
+                          height: 30,
+                           child: ListTile(
+                            title: Text('Plated'),
+                            horizontalTitleGap: 0,
+                            contentPadding: EdgeInsets.all(0),
+                            leading: Radio(value: "buffet",groupValue: "type",onChanged: (value) {
+                              setState(() {
+                                
+                              });
+                            },),
+                                                 ),
+                         )
+                      ],
+                    ),
+                  )
+                ],
+              )),
+            ),
          
     
-              Row(
-                children: [
-                   ElevatedButton(
-                           onPressed: (){Navigator.pop(context);},
-                            style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all(Colors.grey[700]),
-                                fixedSize: MaterialStateProperty.all(
-                                    const Size.fromWidth(90))),
-                            child: FittedBox(
-                              child: const Text(
-                                "Previous",
-                                style: TextStyle(fontSize: 20.00),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                     ElevatedButton(
+                             onPressed: (){Navigator.pop(context);},
+                              style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all(Colors.grey[700]),
+                                  fixedSize: MaterialStateProperty.all(
+                                      const Size.fromWidth(90))),
+                              child: FittedBox(
+                                child: const Text(
+                                  "Previous",
+                                  style: TextStyle(fontSize: 20.00),
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(width: 20,),
-                  ElevatedButton(
-                            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=> const OrderPage3()));},
-                            style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all(Colors.teal[700]),
-                                fixedSize: MaterialStateProperty.all(
-                                    const Size.fromWidth(90))),
-                            child: const Text(
-                              "Next",
-                              style: TextStyle(fontSize: 20.80),
+                            SizedBox(width: 20,),
+                    ElevatedButton(
+                              onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=> const OrderPage3()));},
+                              style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all(Colors.teal[700]),
+                                  fixedSize: MaterialStateProperty.all(
+                                      const Size.fromWidth(90))),
+                              child: const Text(
+                                "Next",
+                                style: TextStyle(fontSize: 20.80),
+                              ),
                             ),
-                          ),
-                ],
+                  ],
+                ),
               ),
                ElevatedButton(
                         onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=> const HomePage()));},

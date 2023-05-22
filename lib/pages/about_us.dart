@@ -52,12 +52,12 @@ class AboutUs extends StatelessWidget {
                               color: Colors.yellow[900],
                               borderRadius: const BorderRadius.all(
                                   Radius.circular(30.0))),
-                          child: const Column(
-                            children: [
-                              Text('Villa Company',
+                          child:  Column(
+                            children: const [
+                               Text('Villa Company',
                                   style:
                                       TextStyle(fontWeight: FontWeight.bold)),
-                              Text('Catering Services',
+                               Text('Catering Services',
                                   style: TextStyle(
                                       letterSpacing: 3.0,
                                       fontWeight: FontWeight.bold))
@@ -66,7 +66,7 @@ class AboutUs extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
+               const  SizedBox(
                   height: 25.0,
                 ),
                 Text(
@@ -91,9 +91,9 @@ class AboutUs extends StatelessWidget {
                 const SizedBox(
                   height: 18.0,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: const Text(
+                const Padding(
+                  padding: EdgeInsets.all(4.0),
+                  child: Text(
                       "We have built our catering business on trust by listening carefully to"
                       "needs and feedback from our customers. Our goal is to let you enjoy your party."
                       "We aim to always exceed your expectations as far as taste, presentstion and service ",
@@ -103,9 +103,9 @@ class AboutUs extends StatelessWidget {
                 const SizedBox(
                   height: 10.0,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: const Text(
+                const Padding(
+                  padding: EdgeInsets.all(4.0),
+                  child: Text(
                       " Avon Prime meat have an outstanding team of professional chefs"
                       "that make every dish from sratch. We use only finest and freshest ingredients"
                       "to give you a truly elevated dining experience in the comfort of your own home or office"

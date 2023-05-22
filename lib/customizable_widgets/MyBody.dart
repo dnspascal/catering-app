@@ -1,3 +1,4 @@
+import 'package:catering_app/pages/registration.dart';
 import 'package:flutter/material.dart';
 
 class MyBody extends StatelessWidget {
@@ -35,7 +36,7 @@ class MyBody extends StatelessWidget {
                             color: Colors.white, fontWeight: FontWeight.bold),
                       ),
                       TextButton(
-                        onPressed: () {},
+                         onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=> const Registration()));},
                         style: ButtonStyle(
                           fixedSize: MaterialStateProperty.all(
                               const Size.fromWidth(100)),
