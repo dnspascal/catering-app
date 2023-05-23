@@ -1,5 +1,6 @@
 import 'package:catering_app/pages/home_page.dart';
 import 'package:catering_app/pages/order_page.dart';
+import 'package:catering_app/pages/payment.dart';
 import 'package:flutter/material.dart';
 
 import 'package:catering_app/customizable_widgets/MyAppBar.dart';
@@ -151,16 +152,16 @@ class _MyOrderState extends State<MyOrder> {
                                       MaterialStateProperty.all(Colors.grey[700]),
                                   fixedSize: MaterialStateProperty.all(
                                       const Size.fromWidth(90))),
-                              child: FittedBox(
-                                child: const Text(
+                              child: const FittedBox(
+                                child:  Text(
                                   "Previous",
                                   style: TextStyle(fontSize: 20.00),
                                 ),
                               ),
                             ),
-                            SizedBox(width: 20,),
+                            const SizedBox(width: 20,),
                     ElevatedButton(
-                              onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=> const OrderPage3()));},
+                              onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=> const Payment()));},
                               style: ButtonStyle(
                                   backgroundColor:
                                       MaterialStateProperty.all(Colors.teal[700]),

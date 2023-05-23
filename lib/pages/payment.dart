@@ -160,7 +160,7 @@ class _RegistrationState extends State<Payment> {
                                   borderSide: BorderSide(
                                       color: Colors.grey, width: 5.0),
                                 ),
-                                hintText: "Eg: Mumbai",
+                                hintText: "Eg: Dar es Salaam",
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                       color: Colors.grey, width: 3.0),
@@ -169,78 +169,80 @@ class _RegistrationState extends State<Payment> {
                             ),
                             ),
                              const SizedBox(height: 15.0,),
-                            Row(
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const Text(
-                                      "State :",
-                                      style: TextStyle(
-                                          fontSize: 18.0,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    SizedBox(
-                                      height: 50.0,
-                                      width: 144,
-                                      child: TextFormField(
-                                        cursorColor: Colors.grey,
-                                        decoration: const InputDecoration(
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide:
-                                                BorderSide(color: Colors.grey),
-                                          ),
-                                          border: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                                color: Colors.grey, width: 5.0),
-                                          ),
-                                          hintText: "Eg:India",
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                                color: Colors.grey, width: 3.0),
+                            FittedBox(
+                              child: Row(
+                                children: [
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+                                        "State :",
+                                        style: TextStyle(
+                                            fontSize: 18.0,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(
+                                        height: 50.0,
+                                        width: 144,
+                                        child: TextFormField(
+                                          cursorColor: Colors.grey,
+                                          decoration: const InputDecoration(
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide:
+                                                  BorderSide(color: Colors.grey),
+                                            ),
+                                            border: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Colors.grey, width: 5.0),
+                                            ),
+                                            hintText: "Eg:Tanzania",
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Colors.grey, width: 3.0),
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  width: 15.0,
-                                ),
-                                Column(
-                                  crossAxisAlignment:CrossAxisAlignment.start,
-                                  children: [
-                                    const Text(
-                                      "Zip Code :",
-                                      style: TextStyle(
-                                          fontSize: 18.0,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    SizedBox(
-                                      height: 50.0,
-                                      width: 144,
-                                      child: TextFormField(
-                                        cursorColor: Colors.grey,
-                                        decoration: const InputDecoration(
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide:
-                                                BorderSide(color: Colors.grey),
-                                          ),
-                                          border: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                                color: Colors.grey, width: 5.0),
-                                          ),
-                                          hintText: "123 456",
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                                color: Colors.grey, width: 3.0),
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    width: 15.0,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+                                        "Zip Code :",
+                                        style: TextStyle(
+                                            fontSize: 18.0,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(
+                                        height: 50.0,
+                                        width: 144,
+                                        child: TextFormField(
+                                          cursorColor: Colors.grey,
+                                          decoration: const InputDecoration(
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide:
+                                                  BorderSide(color: Colors.grey),
+                                            ),
+                                            border: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Colors.grey, width: 5.0),
+                                            ),
+                                            hintText: "123 456",
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Colors.grey, width: 3.0),
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                             const SizedBox(
                               height: 100.0,
@@ -366,78 +368,80 @@ class _RegistrationState extends State<Payment> {
                             const SizedBox(
                               height: 15.0,
                             ),
-                            Row(
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const Text(
-                                      "Exp Year :",
-                                      style: TextStyle(
-                                          fontSize: 18.0,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    SizedBox(
-                                      height: 50.0,
-                                      width: 144,
-                                      child: TextFormField(
-                                        cursorColor: Colors.grey,
-                                        decoration: const InputDecoration(
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide:
-                                                BorderSide(color: Colors.grey),
-                                          ),
-                                          border: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                                color: Colors.grey, width: 5.0),
-                                          ),
-                                          hintText: "2022",
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                                color: Colors.grey, width: 3.0),
+                            FittedBox(
+                              child: Row(
+                                children: [
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+                                        "Exp Year :",
+                                        style: TextStyle(
+                                            fontSize: 18.0,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(
+                                        height: 50.0,
+                                        width: 144,
+                                        child: TextFormField(
+                                          cursorColor: Colors.grey,
+                                          decoration: const InputDecoration(
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide:
+                                                  BorderSide(color: Colors.grey),
+                                            ),
+                                            border: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Colors.grey, width: 5.0),
+                                            ),
+                                            hintText: "2022",
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Colors.grey, width: 3.0),
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  width: 15.0,
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const Text(
-                                      "CVV :",
-                                      style: TextStyle(
-                                          fontSize: 18.0,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    SizedBox(
-                                      height: 50.0,
-                                      width: 144,
-                                      child: TextFormField(
-                                        cursorColor: Colors.grey,
-                                        decoration: const InputDecoration(
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide:
-                                                BorderSide(color: Colors.grey),
-                                          ),
-                                          border: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                                color: Colors.grey, width: 5.0),
-                                          ),
-                                          hintText: "1234",
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                                color: Colors.grey, width: 3.0),
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    width: 15.0,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+                                        "CVV :",
+                                        style: TextStyle(
+                                            fontSize: 18.0,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(
+                                        height: 50.0,
+                                        width: 144,
+                                        child: TextFormField(
+                                          cursorColor: Colors.grey,
+                                          decoration: const InputDecoration(
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide:
+                                                  BorderSide(color: Colors.grey),
+                                            ),
+                                            border: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Colors.grey, width: 5.0),
+                                            ),
+                                            hintText: "1234",
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Colors.grey, width: 3.0),
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                    ],
+                                  ),
+                                ],
+                              ),
                             )
                           ]),
                     ),
