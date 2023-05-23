@@ -91,33 +91,7 @@ class MyDrawer extends StatelessWidget {
                     ),
                   ),
                 ),
-                 InkWell(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => const MenuPage()));
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      children: [
-                        Icon(
-                          
-                          Icons.food_bank_rounded,
-                          size: 50,
-                          color: Colors.white.withOpacity(0.6),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(14, 0, 0, 0),
-                          child: Text(
-                            "Products",
-                            style: TextStyle(
-                                fontSize: 22, color: Colors.white.withOpacity(0.6)),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
+                
                 InkWell(
                   onTap:(){Navigator.push(context, MaterialPageRoute(builder: (_)=> const AboutUs()));},
                   child: Padding(
