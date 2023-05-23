@@ -19,7 +19,7 @@ class MyDrawer extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  padding: const EdgeInsets.fromLTRB(20, 10, 0, 0),
+                  padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                   color: Colors.black.withOpacity(0.6),
                   width: 300,
                   height: 180,
@@ -64,7 +64,6 @@ class MyDrawer extends StatelessWidget {
                     ),
                   ),
                 ),
-               
                 InkWell(
                   onTap: () {
                     Navigator.push(context,
@@ -84,31 +83,6 @@ class MyDrawer extends StatelessWidget {
                           child: Text(
                             "Menu",
                             style: TextStyle(
-                                fontSize: 22, color: Colors.white.withOpacity(0.6)),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                
-                InkWell(
-                  onTap:(){Navigator.push(context, MaterialPageRoute(builder: (_)=> const AboutUs()));},
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      
-                      children: [
-                        Icon(
-                          Icons.home,
-                          size: 50,
-                          color: Colors.white.withOpacity(0.6),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(14, 0, 0, 0),
-                          child: Text(
-                            "About Us",
-                            style: TextStyle(
                                 fontSize: 22,
                                 color: Colors.white.withOpacity(0.6)),
                           ),
@@ -119,8 +93,10 @@ class MyDrawer extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => const Registration()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => const Registration()));
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
@@ -144,33 +120,90 @@ class MyDrawer extends StatelessWidget {
                     ),
                   ),
                 ),
-            
-          
-                  
-                InkWell( 
-              onTap:(){
-                Navigator.push(context,MaterialPageRoute(builder: (_)=>const AboutUs()));},
-              child:  Padding(
-          
-                  padding: const EdgeInsets.all(10.0),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.phone,
-                        size: 50,
-                        color: Colors.white.withOpacity(0.6),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.fromLTRB(14.0, 0, 0, 0),
-                        child: Text(
-                          "Contact Us",
-                          style: TextStyle(
-                              fontSize: 22, color: Colors.white.withOpacity(0.6)),
+               
+               
+
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => const HomePage()));
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.receipt_long,
+                          size: 50,
+                          color: Colors.white.withOpacity(0.6),
                         ),
-                      )
-                    ],
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(4, 0, 0, 0),
+                          child: Text(
+                            "Orders",
+                            style: TextStyle(
+                                fontSize: 22,
+                                color: Colors.white.withOpacity(0.6)),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                ),),
+                ),
+                 InkWell(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => const AboutUs()));
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.phone,
+                          size: 50,
+                          color: Colors.white.withOpacity(0.6),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(14.0, 0, 0, 0),
+                          child: Text(
+                            "Contact Us",
+                            style: TextStyle(
+                                fontSize: 22,
+                                color: Colors.white.withOpacity(0.6)),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                 InkWell(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => const AboutUs()));
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.info,
+                          size: 50,
+                          color: Colors.white.withOpacity(0.6),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(14, 0, 0, 0),
+                          child: Text(
+                            "About Us",
+                            style: TextStyle(
+                                fontSize: 22,
+                                color: Colors.white.withOpacity(0.6)),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Row(
@@ -185,37 +218,13 @@ class MyDrawer extends StatelessWidget {
                         child: Text(
                           "Logout",
                           style: TextStyle(
-                              fontSize: 22, color: Colors.white.withOpacity(0.6)),
+                              fontSize: 22,
+                              color: Colors.white.withOpacity(0.6)),
                         ),
                       )
                     ],
                   ),
                 ),
-                InkWell(
-                  onTap:(){Navigator.push(context, MaterialPageRoute(builder: (_)=> const HomePage()));},
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      
-                      children: [
-                        Icon(
-                          Icons.home,
-                          size: 50,
-                          color: Colors.white.withOpacity(0.6),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(14, 0, 0, 0),
-                          child: Text(
-                            "Orders",
-                            style: TextStyle(
-                                fontSize: 22, color: Colors.white.withOpacity(0.6)),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                
               ],
             ),
           ),

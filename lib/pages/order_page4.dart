@@ -69,16 +69,42 @@ class _MyOrderState extends State<MyOrder> {
                   )
                 ]),
               ),
-              const Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [PackageMeal(), PackageMeal()],
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: FittedBox(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      PackageMeal(
+                        packageName: const {"package": "Package 1-P1500.00"},
+                        foodItem: const [
+                          "Ndizi",
+                          "Chips Kavu",
+                          "Nyama Rosti",
+                          "Tambi"
+                        ],
+                      ),
+                      PackageMeal(packageName: const {
+                        "package": "Package 2-P2500.00"
+                      }, foodItem: const [
+                        "Tambi",
+                        "soda",
+                        "Nyama Mbuzi",
+                        "Kachumbari"
+                      ])
+                    ],
+                  ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Row(children: [PackageMeal()]),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: FittedBox(
+                  child: Row(children: [
+                    PackageMeal(
+                        packageName: const {"package": "Package 3-P2300.00"},
+                        foodItem: const ["ndizi", "nyama mbuzi", "kachumbari"])
+                  ]),
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -110,12 +136,14 @@ class _MyOrderState extends State<MyOrder> {
                       },
                       style: ButtonStyle(
                           backgroundColor:
-                              MaterialStateProperty.all(Colors.teal[700]),
+                              MaterialStateProperty.all(Colors.green[700]),
                           fixedSize: MaterialStateProperty.all(
                               const Size.fromWidth(90))),
-                      child: const Text(
-                        "Submit",
-                        style: TextStyle(fontSize: 20.80),
+                      child:const FittedBox(
+                        child:  Text(
+                          "Submit",
+                          style: TextStyle(fontSize: 20.80),
+                        ),
                       ),
                     ),
                   ],
@@ -128,69 +156,46 @@ class _MyOrderState extends State<MyOrder> {
 }
 
 class PackageMeal extends StatelessWidget {
-  const PackageMeal({super.key});
+  final Map<String, String> packageName;
+  final List<String> foodItem;
+
+  PackageMeal({super.key, required this.foodItem, required this.packageName});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          'Package 1-P1500.00',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0),
-        ),
-        Table(
-          defaultColumnWidth: const IntrinsicColumnWidth(),
-          border: TableBorder.all(color: Colors.grey),
-          children: const [
-            TableRow(children: [
-              TableCell(
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(8.0, 10.0, 78.0, 10.0),
-                  child: Text("Ndizi",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      )),
-                ),
-              )
-            ]),
-            TableRow(children: [
-              TableCell(
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(8.0, 10.0, 78.0, 10.0),
-                  child: Text("Chips Kavu",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      )),
-                ),
-              )
-            ]),
-            TableRow(children: [
-              TableCell(
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(8.0, 10.0, 78.0, 10.0),
-                  child: Text("Nyama Rosti",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      )),
-                ),
-              )
-            ]),
-            TableRow(children: [
-              TableCell(
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(8.0, 10.0, 78.0, 10.0),
-                  child: Text("Tambi",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      )),
-                ),
-              )
-            ])
-          ],
-        ),
-        Radio(onChanged: (value) {}, groupValue: "package", value: 1)
-      ],
+    return Container(
+      margin: const EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 0.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            packageName['package'].toString(),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0),
+          ),
+          Table(
+            defaultColumnWidth: const IntrinsicColumnWidth(),
+            border: TableBorder.all(color: Colors.grey),
+            children: [
+              for (final item in foodItem)
+                TableRow(
+                    decoration: BoxDecoration(color: Colors.grey[200]),
+                    children: [
+                      TableCell(
+                        child: Padding(
+                          padding:
+                              const EdgeInsets.fromLTRB(8.0, 10.0, 72.0, 10.0),
+                          child: Text(item.toString(),
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                              )),
+                        ),
+                      )
+                    ])
+            ],
+          ),
+          Radio(onChanged: (value) {}, groupValue: "package", value: 1)
+        ],
+      ),
     );
   }
 }
