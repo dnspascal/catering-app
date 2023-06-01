@@ -1,4 +1,5 @@
 import 'package:catering_app/pages/about_us.dart';
+import 'package:catering_app/pages/contact_page.dart';
 import 'package:catering_app/pages/home_page.dart';
 import 'package:catering_app/pages/menu_page.dart';
 import 'package:catering_app/pages/payment.dart';
@@ -153,7 +154,7 @@ class MyDrawer extends StatelessWidget {
                  InkWell(
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => const AboutUs()));
+                        MaterialPageRoute(builder: (_) => const ContactUs()));
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
