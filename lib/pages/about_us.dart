@@ -16,57 +16,61 @@ class AboutUs extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Stack(
-                  children: [
-                    Container(
-                      width: 250,
-                      height: 350,
-                      color: Colors.blue,
-                      child: Padding(
-                        padding: const EdgeInsets.all(30.0),
-                        child: Container(
-                          color: Colors.white,
+                Center(
+                  child: Stack(
+                    children: [
+                      Container(
+                        width: 250,
+                        height: 350,
+                        color: Colors.blue,
+                        child: Padding(
+                          padding: const EdgeInsets.all(30.0),
+                          child: Container(
+                            color: Colors.white,
+                          ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(64.0, 55.0, 0.0, 0.0),
-                      child: Container(
-                        height: 200.0,
-                        width: 320.0,
-                        decoration: const BoxDecoration(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(30.0)),
-                            image: DecorationImage(
-                                image: AssetImage('img/fast.jpg'),
-                                fit: BoxFit.cover)),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(64.0, 55.0, 0.0, 0.0),
+                        child: Container(
+                          height: 200.0,
+                          width: 320.0,
+                          decoration: const BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(30.0)),
+                              image: DecorationImage(
+                                  image: AssetImage('img/fast.jpg'),
+                                  fit: BoxFit.cover)),
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(80.0, 194.0, 0.0, 0.0),
-                      child: Container(
-                          padding: const EdgeInsets.all(8.0),
-                          height: 50.0,
-                          width: 230,
-                          decoration: BoxDecoration(
-                              color: Colors.yellow[900],
-                              borderRadius: const BorderRadius.all(
-                                  Radius.circular(30.0))),
-                          child:  Column(
-                            children: const [
-                               Text('Villa Company',
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.bold)),
-                               Text('Catering Services',
-                                  style: TextStyle(
-                                      letterSpacing: 3.0,
-                                      fontWeight: FontWeight.bold))
-                            ],
-                          )),
-                    ),
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(80.0, 194.0, 0.0, 0.0),
+                        child: Container(
+                            padding: const EdgeInsets.all(8.0),
+                            height: 50.0,
+                            width: 230,
+                            decoration: BoxDecoration(
+                                color: Colors.yellow[900],
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(30.0))),
+                            child: const FittedBox(
+                              child: Column(
+                                children: [
+                                  Text('Villa Company',
+                                      style:
+                                          TextStyle(fontWeight: FontWeight.bold)),
+                                  Text('Catering Services',
+                                      style: TextStyle(
+                                          letterSpacing: 3.0,
+                                          fontWeight: FontWeight.bold))
+                                ],
+                              ),
+                            )),
+                      ),
+                    ],
+                  ),
                 ),
-               const  SizedBox(
+                const SizedBox(
                   height: 25.0,
                 ),
                 Text(
@@ -96,9 +100,9 @@ class AboutUs extends StatelessWidget {
                   child: Text(
                       "We have built our catering business on trust by listening carefully to"
                       "needs and feedback from our customers. Our goal is to let you enjoy your party."
-                      "We aim to always exceed your expectations as far as taste, presentstion and service ",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0)),
+                      "We aim to always exceed your expectations as far as taste, presentstion and service.",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16.0)),
                 ),
                 const SizedBox(
                   height: 10.0,
@@ -109,11 +113,12 @@ class AboutUs extends StatelessWidget {
                       " Avon Prime meat have an outstanding team of professional chefs"
                       "that make every dish from sratch. We use only finest and freshest ingredients"
                       "to give you a truly elevated dining experience in the comfort of your own home or office"
-                      " We have established ourselves as the farmington valley's  Butcher , Grocer and Caterer",
-                       style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0)),
+                      " We have established ourselves as the farmington valley's  Butcher , Grocer and Caterer.",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16.0)),
                 ),
-              ],            ),
+              ],
+            ),
           ),
         ));
   }

@@ -1,4 +1,4 @@
-import 'package:catering_app/pages/home_page.dart';
+
 import 'package:catering_app/pages/registration.dart';
 import "package:flutter/material.dart";
 import 'package:catering_app/customizable_widgets/MyAppBar.dart';

@@ -1,7 +1,7 @@
 import 'package:catering_app/pages/about_us.dart';
 import 'package:catering_app/pages/home_page.dart';
 import 'package:catering_app/pages/menu_page.dart';
-import 'package:catering_app/pages/payment.dart';
+
 import 'package:flutter/material.dart';
 import 'package:catering_app/pages/registration.dart';
 
@@ -37,193 +37,201 @@ class MyDrawer extends StatelessWidget {
                     ],
                   ),
                 ),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => const HomePage()));
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.home,
-                          size: 50,
-                          color: Colors.white.withOpacity(0.6),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => const HomePage()));
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.home,
+                              size: 50,
+                              color: Colors.white.withOpacity(0.6),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(14, 0, 0, 0),
+                              child: Text(
+                                "Home",
+                                style: TextStyle(
+                                    fontSize: 22,
+                                    color: Colors.white.withOpacity(0.6)),
+                              ),
+                            )
+                          ],
                         ),
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(14, 0, 0, 0),
-                          child: Text(
-                            "Home",
-                            style: TextStyle(
-                                fontSize: 22,
-                                color: Colors.white.withOpacity(0.6)),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => const MenuPage()));
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.food_bank_rounded,
-                          size: 50,
-                          color: Colors.white.withOpacity(0.6),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(14, 0, 0, 0),
-                          child: Text(
-                            "Menu",
-                            style: TextStyle(
-                                fontSize: 22,
-                                color: Colors.white.withOpacity(0.6)),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) => const Registration()));
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.shopping_cart,
-                          size: 50,
-                          color: Colors.white.withOpacity(0.6),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(14, 0, 0, 0),
-                          child: Text(
-                            "Order Now",
-                            style: TextStyle(
-                                fontSize: 22,
-                                color: Colors.white.withOpacity(0.6)),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-               
-               
-
-                InkWell(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => const HomePage()));
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.receipt_long,
-                          size: 50,
-                          color: Colors.white.withOpacity(0.6),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(4, 0, 0, 0),
-                          child: Text(
-                            "Orders",
-                            style: TextStyle(
-                                fontSize: 22,
-                                color: Colors.white.withOpacity(0.6)),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                 InkWell(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => const AboutUs()));
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.phone,
-                          size: 50,
-                          color: Colors.white.withOpacity(0.6),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(14.0, 0, 0, 0),
-                          child: Text(
-                            "Contact Us",
-                            style: TextStyle(
-                                fontSize: 22,
-                                color: Colors.white.withOpacity(0.6)),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                 InkWell(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => const AboutUs()));
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.info,
-                          size: 50,
-                          color: Colors.white.withOpacity(0.6),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(14, 0, 0, 0),
-                          child: Text(
-                            "About Us",
-                            style: TextStyle(
-                                fontSize: 22,
-                                color: Colors.white.withOpacity(0.6)),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.logout,
-                        size: 50,
-                        color: Colors.white.withOpacity(0.6),
                       ),
-                      Container(
-                        margin: const EdgeInsets.fromLTRB(14, 0, 0, 0),
-                        child: Text(
-                          "Logout",
-                          style: TextStyle(
-                              fontSize: 22,
-                              color: Colors.white.withOpacity(0.6)),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => const MenuPage()));
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.food_bank_rounded,
+                              size: 50,
+                              color: Colors.white.withOpacity(0.6),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(14, 0, 0, 0),
+                              child: Text(
+                                "Menu",
+                                style: TextStyle(
+                                    fontSize: 22,
+                                    color: Colors.white.withOpacity(0.6)),
+                              ),
+                            )
+                          ],
                         ),
-                      )
-                    ],
-                  ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => const Registration()));
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.shopping_cart,
+                              size: 50,
+                              color: Colors.white.withOpacity(0.6),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(14, 0, 0, 0),
+                              child: Text(
+                                "Order Now",
+                                style: TextStyle(
+                                    fontSize: 22.0,
+                                    color: Colors.white.withOpacity(0.6)),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => const HomePage()));
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.receipt_long,
+                              size: 50,
+                              color: Colors.white.withOpacity(0.6),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(4, 0, 0, 0),
+                              child: Text(
+                                "Orders",
+                                style: TextStyle(
+                                    fontSize: 22,
+                                    color: Colors.white.withOpacity(0.6)),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (_) => const AboutUs()));
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.phone,
+                              size: 50,
+                              color: Colors.white.withOpacity(0.6),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(4.0, 0, 0, 0),
+                              child: Text(
+                                "Contact Us",
+                                style: TextStyle(
+                                    fontSize: 22,
+                                    color: Colors.white.withOpacity(0.6)),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (_) => const AboutUs()));
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.info,
+                              size: 50,
+                              color: Colors.white.withOpacity(0.6),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(14, 0, 0, 0),
+                              child: Text(
+                                "About Us",
+                                style: TextStyle(
+                                    fontSize: 22,
+                                    color: Colors.white.withOpacity(0.6)),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.logout,
+                            size: 50,
+                            color: Colors.white.withOpacity(0.6),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(14, 0, 0, 0),
+                            child: Text(
+                              "Logout",
+                              style: TextStyle(
+                                  fontSize: 22,
+                                  color: Colors.white.withOpacity(0.6)),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
