@@ -1,4 +1,5 @@
 import 'package:catering_app/pages/about_us.dart';
+import 'package:catering_app/pages/contact_page.dart';
 import 'package:catering_app/pages/home_page.dart';
 import 'package:catering_app/pages/menu_page.dart';
 
@@ -180,9 +181,28 @@ class MyDrawer extends StatelessWidget {
                               ),
                             )
                           ],
+                  ),
+                ),
+                    ),
+                 InkWell(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => const ContactUs()));
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.phone,
+                          size: 50,
+                          color: Colors.white.withOpacity(0.6),
+
                         ),
+                      ],
                       ),
                     ),
+                 ),
                     InkWell(
                       onTap: () {
                         Navigator.push(context,
