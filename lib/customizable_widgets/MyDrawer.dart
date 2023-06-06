@@ -145,7 +145,7 @@ class MyDrawer extends StatelessWidget {
                               color: Colors.white.withOpacity(0.6),
                             ),
                             Container(
-                              margin: const EdgeInsets.fromLTRB(4, 0, 0, 0),
+                              margin: const EdgeInsets.fromLTRB(14, 0, 0, 0),
                               child: Text(
                                 "Orders",
                                 style: TextStyle(
@@ -172,7 +172,7 @@ class MyDrawer extends StatelessWidget {
                               color: Colors.white.withOpacity(0.6),
                             ),
                             Container(
-                              margin: const EdgeInsets.fromLTRB(4.0, 0, 0, 0),
+                              margin: const EdgeInsets.fromLTRB(14.0, 0, 0, 0),
                               child: Text(
                                 "Contact Us",
                                 style: TextStyle(
@@ -184,25 +184,7 @@ class MyDrawer extends StatelessWidget {
                   ),
                 ),
                     ),
-                 InkWell(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => const ContactUs()));
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.phone,
-                          size: 50,
-                          color: Colors.white.withOpacity(0.6),
-
-                        ),
-                      ],
-                      ),
-                    ),
-                 ),
+                
                     InkWell(
                       onTap: () {
                         Navigator.push(context,
