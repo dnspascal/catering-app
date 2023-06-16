@@ -94,6 +94,38 @@ class _LoginState extends State<Login> {
                     const SizedBox(
                       height: 18.0,
                     ),
+                      const Text(
+                          "user-email",
+                          style: TextStyle(
+                              fontSize: 18.0, fontWeight: FontWeight.bold),
+                        ),
+                        TextFormField(
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "please enter your email";
+                            }
+                            return null;
+                          },
+                          onSaved: (value) {
+                            email = value!;
+                          },
+                          // controller: _emailController,
+                          cursorColor: Colors.grey,
+                          decoration: const InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.grey),
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.grey, width: 1.0),
+                            ),
+                            hintText: "Email address",
+                            // enabledBorder: OutlineInputBorder(
+                            //   borderSide: BorderSide(
+                            //       color: Colors.grey, width: 3.0),
+                            // ),
+                          ),
+                        ),
                     const Text(
                       "Password",
                       style: TextStyle(
@@ -129,6 +161,7 @@ class _LoginState extends State<Login> {
               ),
               ElevatedButton(
                 onPressed: () async {
+                  
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
                     final user = await DataSource.getUserByEmail(email);
