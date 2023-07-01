@@ -2,7 +2,6 @@ import 'package:catering_app/customizable_widgets/MyDrawer.dart';
 import 'package:flutter/material.dart';
 import 'package:catering_app/customizable_widgets/MyAppBar.dart';
 import 'package:catering_app/pages/login.dart';
-
 import 'package:http/http.dart' as http;
 import 'package:email_validator/email_validator.dart';
 import 'dart:convert';
@@ -27,7 +26,7 @@ class _RegistrationState extends State<Registration> {
   void _register() async {
     if (_formkey1.currentState!.validate()) {
       _formkey1.currentState!.save();
-      var url = Uri.parse("http://192.168.43.202/indexflutter.php");
+      var ulr2 = Uri.parse("http://192.168.43.202/registration.php");
 
       var data = {
         'first': _firstnameController.text,
@@ -37,19 +36,19 @@ class _RegistrationState extends State<Registration> {
         'contact': _phoneNumberController.text,
         'password': _passwordController.text,
       };
-      var response = await http.post(url, body: data);
 
-      var res = await http.get(url);
-      // var respo = jsonDecode(res.body);
-      // print(respo.runtimeType);
-      // print(respo["status"]);
+      var response = await http.post(ulr2, body: data);
+      print("THIS IS YOUR RESPONSE");
+      print(response.body);
+
+      print(response.statusCode);
       if (response.statusCode == 200) {
         showDialog(
             context: context,
             builder: (context) => SizedBox(
                   height: 20.0,
                   child: AlertDialog(
-                    content: const Text("Registration successful"),
+                    content: Text(response.body),
                     actions: [
                       TextButton(
                           onPressed: () {
@@ -68,18 +67,20 @@ class _RegistrationState extends State<Registration> {
         // _passwordController.clear();
         // _confirmPasswordController.clear();
       } else {
+      
         showDialog(
             context: context,
             builder: (context) => SizedBox(
                   height: 20.0,
                   child: AlertDialog(
-                    content: Text('Registration failed'),
+                    content: Text(response.body),
+                    
                     actions: [
                       TextButton(
                           onPressed: () {
                             Navigator.pop(context);
                           },
-                          child: const Text("TRY AGAIN"))
+                          child: Text("TRY AGAIN"))
                     ],
                   ),
                 ));
@@ -87,28 +88,28 @@ class _RegistrationState extends State<Registration> {
     }
   }
 
-  bool checkEmail = false;
-  Future<void> checkExistingEmail() async {
-    // checkEmail = false;
+  // bool checkEmail = false;
+  // Future<void> checkExistingEmail() async {
+  //   // checkEmail = false;
 
-    print("INSIDE ELSE COMPARISON");
-    var url = Uri.parse("http://192.168.43.202/gethtml.php");
-    var res = await http.get(url);
+  //   print("INSIDE ELSE COMPARISON");
+  //   var url = Uri.parse("http://192.168.43.202/gethtml.php");
+  //   var res = await http.get(url);
 
-    var vares = jsonDecode(res.body);
+  //   var vares = jsonDecode(res.body);
 
-    vares.forEach((item) => {
-          print("wrong item is " + item['email'] + _emailController.text),
-          if (item["email"] == _emailController.text)
-            {
-              print(item['email']),
-              print("NEW EMSIL" + _emailController.text),
-              checkEmail = true
-            }
-        });
+  //   vares.forEach((item) => {
+  //         print("wrong item is " + item['email'] + _emailController.text),
+  //         if (item["email"] == _emailController.text)
+  //           {
+  //             print(item['email']),
+  //             print("NEW EMSIL" + _emailController.text),
+  //             checkEmail = true
+  //           }
+  //       });
 
-    print(checkEmail);
-  }
+  //   print(checkEmail);
+  // }
 
   bool onCheck = false;
   final _formkey1 = GlobalKey<FormState>();

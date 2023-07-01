@@ -1,11 +1,12 @@
-
 import 'package:catering_app/pages/registration.dart';
 import "package:flutter/material.dart";
 import 'package:catering_app/customizable_widgets/MyAppBar.dart';
 import 'package:catering_app/customizable_widgets/MyDrawer.dart';
-
-import '../models/data_source.dart';
+import 'package:http/http.dart' as http;
 import 'menu_page.dart';
+import 'package:get/get.dart';
+import 'dart:convert';
+import 'package:email_validator/email_validator.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -15,6 +16,36 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final TextEditingController _emailLogin = TextEditingController();
+  final TextEditingController _passwordLogin = TextEditingController();
+  var wrongCredential = false;
+  void _login() async {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+      var data = {
+        "email": _emailLogin.text,
+        "password": _passwordLogin.text,
+      };
+
+      var url = Uri.parse("http://192.168.43.202/login.php");
+      var response = await http.post(url, body: data);
+
+      var here = jsonDecode(response.body);
+
+      if (here['status'] == 200) {
+        setState(() {
+          wrongCredential = false;
+        });
+        Get.to(const MenuPage());
+      } else {
+        print("THIS IS THE " + wrongCredential.toString());
+        setState(() {
+          wrongCredential = true;
+        });
+      }
+    }
+  }
+
   final _formKey = GlobalKey<FormState>();
   late String email;
   late String password;
@@ -90,48 +121,57 @@ class _LoginState extends State<Login> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                 
-                    const SizedBox(
+                    SizedBox(
                       height: 18.0,
+                      child: wrongCredential
+                          ? Center(
+                              child: Text("Wrong credentials",
+                                  style: const TextStyle(color: Colors.red)))
+                          : null,
                     ),
-                      const Text(
-                          "user-email",
-                          style: TextStyle(
-                              fontSize: 18.0, fontWeight: FontWeight.bold),
+                    const Text(
+                      "user-email",
+                      style: TextStyle(
+                          fontSize: 18.0, fontWeight: FontWeight.bold),
+                    ),
+                    TextFormField(
+                      controller: _emailLogin,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "please enter your email";
+                        }
+                        if (!EmailValidator.validate(value)) {
+                          return 'Please enter a valid email address';
+                        }
+                        return null;
+                      },
+                      onSaved: (value) {
+                        email = value!;
+                      },
+                      // controller: _emailController,
+                      cursorColor: Colors.grey,
+                      decoration: const InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey),
                         ),
-                        TextFormField(
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "please enter your email";
-                            }
-                            return null;
-                          },
-                          onSaved: (value) {
-                            email = value!;
-                          },
-                          // controller: _emailController,
-                          cursorColor: Colors.grey,
-                          decoration: const InputDecoration(
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.grey),
-                            ),
-                            border: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.grey, width: 1.0),
-                            ),
-                            hintText: "Email address",
-                            // enabledBorder: OutlineInputBorder(
-                            //   borderSide: BorderSide(
-                            //       color: Colors.grey, width: 3.0),
-                            // ),
-                          ),
+                        border: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.grey, width: 1.0),
                         ),
+                        hintText: "Email address",
+                        // enabledBorder: OutlineInputBorder(
+                        //   borderSide: BorderSide(
+                        //       color: Colors.grey, width: 3.0),
+                        // ),
+                      ),
+                    ),
                     const Text(
                       "Password",
                       style: TextStyle(
                           fontSize: 18.0, fontWeight: FontWeight.bold),
                     ),
                     TextFormField(
+                      controller: _passwordLogin,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return "please enter your password";
@@ -160,28 +200,8 @@ class _LoginState extends State<Login> {
                 height: 18.0,
               ),
               ElevatedButton(
-                onPressed: () async {
-                  
-                  if (_formKey.currentState!.validate()) {
-                    _formKey.currentState!.save();
-                    final user = await DataSource.getUserByEmail(email);
-                    if ( user != null && user.password == password) {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (_) => const MenuPage()));
-
-                    }else  {
-                      showDialog(context: context, builder: (context)=>AlertDialog(
-                        title: const Text("login failed"),content: Text("invalid email or password"),actions: [
-                          TextButton(onPressed: (){
-                            Navigator.pop(context);
-                          }, child: const Text("OK"))
-                        ],));
-                    }
-                  }
-                },
-                style: ButtonStyle( 
+                onPressed: _login,
+                style: ButtonStyle(
                     backgroundColor:
                         MaterialStateProperty.all(Colors.blue[600]),
                     fixedSize:

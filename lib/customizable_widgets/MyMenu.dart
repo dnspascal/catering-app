@@ -170,7 +170,7 @@ class MenuItem extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Center(
                     child: ElevatedButton(
-                        onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=> const OrderPage()));},
+                        onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>  OrderPage()));},
                         child: Text(
                           'Order Now',
                           style: TextStyle(fontSize: 18),
