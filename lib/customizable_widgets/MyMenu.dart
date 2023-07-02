@@ -1,6 +1,10 @@
 import 'package:catering_app/pages/menu_page.dart';
 import 'package:catering_app/pages/order_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../Controllers/userController.dart';
+import '../pages/login.dart';
 
 class MyMenu extends StatelessWidget {
   const MyMenu({super.key});
@@ -136,6 +140,13 @@ class MenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final UserController userController =Get.find();
+    Widget ChildWidget;
+    if(userController.active.value){
+      ChildWidget =OrderPage();
+    }else{
+      ChildWidget=const Login();
+    }
     dynamic sum = addValues();
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12,horizontal: 0),
@@ -170,7 +181,7 @@ class MenuItem extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Center(
                     child: ElevatedButton(
-                        onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>  OrderPage()));},
+                        onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>  ChildWidget));},
                         child: Text(
                           'Order Now',
                           style: TextStyle(fontSize: 18),

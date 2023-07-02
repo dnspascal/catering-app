@@ -33,7 +33,7 @@ class _OrderPage4State extends State<OrderPage4> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const PreferredSize(
+        appBar:  PreferredSize(
             preferredSize: Size.fromHeight(85), child: MyAppBar()),
         drawer: MyDrawer(),
         body: SingleChildScrollView(

@@ -136,7 +136,7 @@ class _RegistrationState extends State<Registration> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const PreferredSize(
+      appBar:  PreferredSize(
           preferredSize: Size.fromHeight(85), child: MyAppBar()),
       drawer: const MyDrawer(),
       body: SingleChildScrollView(

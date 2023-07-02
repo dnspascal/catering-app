@@ -3,6 +3,7 @@ import "package:flutter/material.dart";
 import 'package:catering_app/customizable_widgets/MyAppBar.dart';
 import 'package:catering_app/customizable_widgets/MyDrawer.dart';
 import 'package:http/http.dart' as http;
+import '../Controllers/userController.dart';
 import 'menu_page.dart';
 import 'package:get/get.dart';
 import 'dart:convert';
@@ -16,6 +17,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+    final UserController userController = Get.find();
+
   final TextEditingController _emailLogin = TextEditingController();
   final TextEditingController _passwordLogin = TextEditingController();
   var wrongCredential = false;
@@ -31,14 +34,15 @@ class _LoginState extends State<Login> {
       var response = await http.post(url, body: data);
 
       var here = jsonDecode(response.body);
-
+        
       if (here['status'] == 200) {
         setState(() {
           wrongCredential = false;
         });
+        userController.setUserData(here['user']);
         Get.to(const MenuPage());
       } else {
-        print("THIS IS THE " + wrongCredential.toString());
+        
         setState(() {
           wrongCredential = true;
         });
@@ -52,7 +56,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const PreferredSize(
+      appBar:  PreferredSize(
           preferredSize: Size.fromHeight(85), child: MyAppBar()),
       drawer: const MyDrawer(),
       body: SingleChildScrollView(

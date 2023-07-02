@@ -4,6 +4,9 @@ import 'package:catering_app/pages/order_page2.dart';
 import 'package:flutter/material.dart';
 import 'package:catering_app/customizable_widgets/MyAppBar.dart';
 import 'package:catering_app/customizable_widgets/MyDrawer.dart';
+import 'package:get/get.dart';
+
+import '../Controllers/userController.dart';
 
 class OrderPage extends StatelessWidget {
   Map<String, dynamic> page1 = {};
@@ -17,6 +20,7 @@ class OrderPage extends StatelessWidget {
   final TextEditingController _dateOfEvent = TextEditingController();
 
   final TextEditingController _timeOfEvent = TextEditingController();
+  UserController userController = Get.find();
 
   final _formkey1 = GlobalKey<FormState>();
 
@@ -269,6 +273,7 @@ class OrderPage extends StatelessWidget {
                       if (_formkey1.currentState!.validate()) {
                         _formkey1.currentState!.save();
                         page1.addAll({
+                          "user_id":userController.userData.value['id'],
                           "pax":_noOfPax.text,
                           "r_date":_dateOfEvent.text,
                           "r_time":_timeOfEvent.text,

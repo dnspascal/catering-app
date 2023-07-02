@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const MyDrawer(),
-      appBar: const PreferredSize(
+      appBar:  PreferredSize(
           preferredSize: Size.fromHeight(85), child: MyAppBar()),
       floatingActionButton: SizedBox(
           width: 120.0,

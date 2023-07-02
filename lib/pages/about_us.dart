@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../Controllers/userController.dart';
 import '../customizable_widgets/MyAppBar.dart';
 import '../customizable_widgets/MyDrawer.dart';
 
 class AboutUs extends StatelessWidget {
-  const AboutUs({super.key});
+   AboutUs({super.key});
+  UserController userController = Get.find();
   @override
   Widget build(BuildContext context) {
+    print(userController.userData.value);
     return Scaffold(
-        appBar: const PreferredSize(
+        appBar:  PreferredSize(
             preferredSize: Size.fromHeight(85), child: MyAppBar()),
         drawer: const MyDrawer(),
         body: SingleChildScrollView(
@@ -117,6 +121,7 @@ class AboutUs extends StatelessWidget {
                       style: TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 16.0)),
                 ),
+               
               ],
             ),
           ),

@@ -21,6 +21,7 @@ class OrderPage2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(page2);
     return Scaffold(
         appBar: PreferredSize(
             preferredSize: Size.fromHeight(85), child: MyAppBar()),
