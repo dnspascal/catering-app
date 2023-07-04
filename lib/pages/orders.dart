@@ -37,17 +37,20 @@ class _OrdersState extends State<Orders> {
     for (int i = 0; i < dataAfterDecoded['sizeOfRespo']; i++) {
       print("HERE");
     }
-    if (dataAfterDecoded['data'].length > 0) {
-      order = true;
-      setState(() {
-        dataReceived =
-            dataAfterDecoded['data'][dataAfterDecoded['data'].length - 1];
-      });
-    } else {}
+
+    setState(() {
+      dataReceived =
+          dataAfterDecoded['data'][dataAfterDecoded['data'].length - 1];
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+    if (dataReceived.isNotEmpty) {
+      order = true;
+    } else {
+      order = false;
+    }
     return Scaffold(
         appBar: PreferredSize(
             preferredSize: Size.fromHeight(85), child: MyAppBar()),
@@ -87,68 +90,71 @@ class _OrdersState extends State<Orders> {
                   color: Colors.grey[800],
                 ),
                 order
-                    ? RichText(
-                        text: TextSpan(children: [
-                        WidgetSpan(
-                            child: Text("Name:" +
-                                userController.userData['first'].toLowerCase() +
-                                "\n")),
-                        WidgetSpan(
-                          child: Text("Contact #:" +
+                    ? Text.rich(
+                    TextSpan(children :[
+                        TextSpan(
+                            text: "Name:" +
+                                userController.userData['first'].toLowerCase()),
+                            
+                        TextSpan(
+                          text: "\n" + "Contact #:" +
                               userController.userData['contact'] +
-                              "\n"),
+                              "\n",
                         ),
-                        WidgetSpan(
-                          child: Text("Address:" +
+                        TextSpan(
+                          text:"Address:" +
                               userController.userData['address'] +
                               "\n"),
-                        ),
-                        WidgetSpan(
-                          child: Text("Event Date:" +
+                        
+                        TextSpan(
+                           text:"Event Date:" +
                               dataReceived['r_date'].toString() +
                               "\n"),
-                        ),
-                        WidgetSpan(
-                          child: Text("Time:" +
+                        
+                        TextSpan(
+                          text:"Time:" +
                               dataReceived['r_time'].toString() +
                               "\n"),
-                        ),
-                        WidgetSpan(
-                          child: Text("Venue:" +
+                        
+                        TextSpan(
+                          text:"Venue:" +
                               dataReceived['r_venue'].toString() +
                               "\n"),
-                        ),
-                        WidgetSpan(
-                          child: Text("Motif:" +
+                        
+                        TextSpan(
+                          text:"Motif:" +
                               dataReceived['r_motif'].toString() +
                               "\n"),
-                        ),
-                        WidgetSpan(
-                          child: Text("Occassion:" +
+                      
+                        TextSpan(
+                           text:"Occassion:" +
                               dataReceived['r_ocassion'].toString() +
                               "\n"),
-                        ),
-                        WidgetSpan(
-                          child: Text("Type:" +
+                      
+                        TextSpan(
+                          text:"Type:" +
                               dataReceived['r_type'].toString() +
                               "\n"),
-                        ),
-                        WidgetSpan(
-                          child: Text("No of Pax:" +
+                      
+                        TextSpan(
+                      text:"No of Pax:" +
                               dataReceived['pax'].toString() +
                               "\n"),
-                        ),
-                        WidgetSpan(
-                          child: Text("Payable:" +
+                        
+                        TextSpan(
+                        text:"Payable:" +
                               dataReceived['payable'].toString() +
                               "\n"),
-                        ),
-                        WidgetSpan(
-                            child: Text("Mode of Payment:" +
+                      
+                        TextSpan(
+                            text:"Mode of Payment:" +
                                 dataReceived['modeofpayment'].toString() +
-                                "\n")),
+                                "\n"),
                       ]))
                     : const Text("YOU HAVE NOT ORDERED YET"),
+
+
+
 
                 // Text("Rcode:" + dataReceived['r_code']),
               ]),

@@ -21,9 +21,39 @@ class MyDrawer extends StatelessWidget {
     UserController userController = Get.find();
     
     Widget ChildWidget;
+    Widget OrderPage;
     if(userController.active.value){
       ChildWidget =const MenuPage();
+      OrderPage=InkWell(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (_) => const Orders()));
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.receipt_long,
+                              size: 50,
+                              color: Colors.white.withOpacity(0.6),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(14, 0, 0, 0),
+                              child: Text(
+                                "Orders",
+                                style: TextStyle(
+                                    fontSize: 22,
+                                    color: Colors.white.withOpacity(0.6)),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    );
+
     }else{
+      OrderPage= const SizedBox(height: 0.0, width: 0.0);
       ChildWidget=const Login();
     }
     Widget logoutWidget;
@@ -171,34 +201,8 @@ class MyDrawer extends StatelessWidget {
                         ),
                       ),
                     ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (_) => const Orders()));
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.receipt_long,
-                              size: 50,
-                              color: Colors.white.withOpacity(0.6),
-                            ),
-                            Container(
-                              margin: const EdgeInsets.fromLTRB(14, 0, 0, 0),
-                              child: Text(
-                                "Orders",
-                                style: TextStyle(
-                                    fontSize: 22,
-                                    color: Colors.white.withOpacity(0.6)),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    InkWell(
+                    OrderPage,
+                                        InkWell(
                       onTap: () {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (_) => AboutUs()));
