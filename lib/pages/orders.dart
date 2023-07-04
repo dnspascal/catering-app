@@ -18,20 +18,34 @@ class Orders extends StatefulWidget {
 class _OrdersState extends State<Orders> {
   final UserController userController = Get.find();
   @override
-  void initState()  {
+  void initState() {
     super.initState();
-   fetchData();
+    fetchData();
   }
-  void fetchData()async{
- var url = Uri.parse("http://192.168.43.202/get_order.php");
 
-    var res2 = await http
+  Map<String, dynamic> dataReceived = {};
+
+  bool order = false;
+  void fetchData() async {
+    var url = Uri.parse("http://192.168.43.202/get_order.php");
+
+    var res = await http
         .post(url, body: {"user_id": userController.userData.value['id']});
-       print("THIS IS THE SIZE OF MY ARRARY");
-       var data = jsonDecode(res2.body);  
-    print(data['status']);
-    
+
+    var dataAfterDecoded = jsonDecode(res.body);
+
+    for (int i = 0; i < dataAfterDecoded['sizeOfRespo']; i++) {
+      print("HERE");
+    }
+    if (dataAfterDecoded['data'].length > 0) {
+      order = true;
+      setState(() {
+        dataReceived =
+            dataAfterDecoded['data'][dataAfterDecoded['data'].length - 1];
+      });
+    } else {}
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,19 +86,71 @@ class _OrdersState extends State<Orders> {
                   thickness: 2.0,
                   color: Colors.grey[800],
                 ),
-                Text("Rcode:"),
-                Text("Name:"),
-                Text("Contact #:"),
-                Text("Address:"),
-                Text("Event Date:"),
-                Text("Time:"),
-                Text("Venue:"),
-                Text("Motif:"),
-                Text("Occassion:"),
-                Text("Type:"),
-                Text("No of Pax:"),
-                Text("Payable:"),
-                Text("Mode of Payment:"),
+                order
+                    ? RichText(
+                        text: TextSpan(children: [
+                        WidgetSpan(
+                            child: Text("Name:" +
+                                userController.userData['first'].toLowerCase() +
+                                "\n")),
+                        WidgetSpan(
+                          child: Text("Contact #:" +
+                              userController.userData['contact'] +
+                              "\n"),
+                        ),
+                        WidgetSpan(
+                          child: Text("Address:" +
+                              userController.userData['address'] +
+                              "\n"),
+                        ),
+                        WidgetSpan(
+                          child: Text("Event Date:" +
+                              dataReceived['r_date'].toString() +
+                              "\n"),
+                        ),
+                        WidgetSpan(
+                          child: Text("Time:" +
+                              dataReceived['r_time'].toString() +
+                              "\n"),
+                        ),
+                        WidgetSpan(
+                          child: Text("Venue:" +
+                              dataReceived['r_venue'].toString() +
+                              "\n"),
+                        ),
+                        WidgetSpan(
+                          child: Text("Motif:" +
+                              dataReceived['r_motif'].toString() +
+                              "\n"),
+                        ),
+                        WidgetSpan(
+                          child: Text("Occassion:" +
+                              dataReceived['r_ocassion'].toString() +
+                              "\n"),
+                        ),
+                        WidgetSpan(
+                          child: Text("Type:" +
+                              dataReceived['r_type'].toString() +
+                              "\n"),
+                        ),
+                        WidgetSpan(
+                          child: Text("No of Pax:" +
+                              dataReceived['pax'].toString() +
+                              "\n"),
+                        ),
+                        WidgetSpan(
+                          child: Text("Payable:" +
+                              dataReceived['payable'].toString() +
+                              "\n"),
+                        ),
+                        WidgetSpan(
+                            child: Text("Mode of Payment:" +
+                                dataReceived['modeofpayment'].toString() +
+                                "\n")),
+                      ]))
+                    : const Text("YOU HAVE NOT ORDERED YET"),
+
+                // Text("Rcode:" + dataReceived['r_code']),
               ]),
         ));
   }

@@ -19,6 +19,13 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     UserController userController = Get.find();
+    
+    Widget ChildWidget;
+    if(userController.active.value){
+      ChildWidget =const MenuPage();
+    }else{
+      ChildWidget=const Login();
+    }
     Widget logoutWidget;
     if (userController.active.value) {
       logoutWidget = InkWell(
@@ -140,7 +147,7 @@ class MyDrawer extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (_) => const Registration()));
+                                builder: (_) =>  ChildWidget));
                       },
                       child: Padding(
                         padding: const EdgeInsets.all(10.0),

@@ -23,11 +23,11 @@ class _OrderPage4State extends State<OrderPage4> {
     });
   }
   void submitReservation()async{
-    print("inside submit reservation");
-    print(widget.page4);
+  
+    
     var url = Uri.parse ("http://192.168.43.202/make_order.php");
     var res = await http.post(url,body:widget.page4);
-    print(res.body);
+    
   }
 
   @override
